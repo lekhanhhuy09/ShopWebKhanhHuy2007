@@ -187,14 +187,14 @@ audio{display:none;}
           <button class="ntab2" onclick="napTab('info',this)">Chuyển Khoản</button>
         </div>
         <div id="nap-qr" style="text-align:center">
-          <img class="qr-img" src="https://sf-static.upanhlaylink.com/img/image_2026060946fe6a194bb186109153ddf65f386d60.jpg" alt="QR">
+          <img class="qr-img" src="https://sf-static.upanhlaylink.com/img/image_20260218b6ef6115972f3fd137fd24453d0b3469.jpg" alt="QR">
           <div style="font-size:12px;color:var(--muted);">Quét QR để chuyển tiền</div>
         </div>
         <div id="nap-info" style="display:none">
           <div class="bank-info">
-            <div class="br"><span class="bk">Chủ TK</span><span class="bv">Doan Tuan Anh</span></div>
+            <div class="br"><span class="bk">Chủ TK</span><span class="bv">ZALO_PAY Doan Tuan Anh</span></div>
             <div class="br"><span class="bk">Số TK</span><div style="display:flex;align-items:center;gap:5px;"><span class="bv">99ZP26049M39546586</span><button class="copy-btn" onclick="copy('99ZP26049M39546586')">Copy</button></div></div>
-            <div class="br"><span class="bk">Ví</span><span class="bv">MoMo / Ví điện tử</span></div>
+            <div class="br"><span class="bk">Ví</span><span class="bv">Zalopay / Ví điện tử</span></div>
           </div>
         </div>
         <div class="nd-box">
@@ -316,7 +316,7 @@ async function loadShop(){
     document.getElementById('item-count').textContent=items.length+' sản phẩm';
     if(!items.length){grid.innerHTML='<div class="empty"><div class="empty-icon">📦</div><div style="font-weight:700;margin-bottom:5px;">Chưa có sản phẩm</div><div style="font-size:13px;">Admin đang cập nhật!</div></div>';return;}
     grid.innerHTML=items.map(it=>`<div class="ic">
-      <div class="ic-img">${it.img?`<img src="${it.img}" onerror="this.parentNode.textContent='🛍️'">`:it.name[0]||'📦'}</div>
+        <div class="ic-img">${it.img?`<img src="${it.img}" onerror="this.parentNode.textContent='🛍️'">`:it.name[0]||'📦'}</div>
       <div class="ic-info">
         <div class="ic-name">${it.name}</div>
         <div class="ic-code">#${it.code}</div>
