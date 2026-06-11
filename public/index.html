@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Shop Le Khanh Huy — Đăng Nhập</title>
+<link rel="icon" href="https://sf-static.upanhlaylink.com/img/image_2026060946fe6a194bb186109153ddf65f386d60.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#050508;--accent:#8b5cf6;--text:#f1f5f9;--muted:#64748b;--border:rgba(139,92,246,0.18);--success:#22c55e;--danger:#ef4444;}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;background-image:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(139,92,246,0.13),transparent 60%);}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.p{position:absolute;border-radius:50%;animation:float linear infinite;}
+@keyframes float{0%{transform:translateY(110vh);opacity:0;}10%{opacity:.5;}90%{opacity:.2;}100%{transform:translateY(-10vh);opacity:0;}}
+.panel{position:relative;z-index:1;width:100%;max-width:420px;background:rgba(13,13,20,0.93);border:1px solid var(--border);border-radius:24px;padding:40px 36px 36px;box-shadow:0 0 0 1px rgba(139,92,246,0.05),0 32px 80px rgba(0,0,0,0.85),0 0 80px rgba(139,92,246,0.07);backdrop-filter:blur(20px);}
+.logo-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:28px;}
+.logo{width:68px;height:68px;border-radius:16px;border:2px solid rgba(139,92,246,0.35);box-shadow:0 0 28px rgba(139,92,246,0.3);}
+.brand{font-size:20px;font-weight:900;background:linear-gradient(135deg,#c4b5fd,#8b5cf6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.brand-sub{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.12em;}
+.tabs{display:flex;background:rgba(255,255,255,0.04);border-radius:10px;padding:3px;margin-bottom:24px;}
+.tab{flex:1;padding:8px;text-align:center;font-size:13px;font-weight:600;border-radius:8px;cursor:pointer;color:var(--muted);border:none;background:none;transition:.2s;}
+.tab.active{background:rgba(139,92,246,0.18);color:#c4b5fd;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.field input{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:11px 14px;color:var(--text);font-size:14px;transition:.2s;outline:none;font-family:'Inter',sans-serif;}
+.field input:focus{border-color:rgba(139,92,246,0.5);box-shadow:0 0 0 3px rgba(139,92,246,0.1);}
+.field input::placeholder{color:var(--muted);}
+.btn{width:100%;padding:13px;border-radius:12px;border:none;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:.18s;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;box-shadow:0 4px 20px rgba(139,92,246,0.35);margin-top:4px;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(139,92,246,0.45);}
+.btn:active{transform:scale(.98);}
+.btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.alert{padding:10px 14px;border-radius:10px;font-size:13px;font-weight:500;margin-bottom:14px;display:none;align-items:center;gap:8px;}
+.alert.error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;display:flex;}
+.alert.success{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);color:#86efac;display:flex;}
+.security-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:18px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.security-badge span{color:var(--success);}
+.ip-info{font-size:10px;font-family:'JetBrains Mono',monospace;color:rgba(100,116,139,0.5);text-align:center;margin-top:8px;}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+audio{display:none;}
+@media(max-width:480px){.panel{margin:16px;padding:28px 20px;}}
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<div class="panel">
+  <div class="logo-wrap">
+    <img class="logo" src="https://sf-static.upanhlaylink.com/img/image_2026060946fe6a194bb186109153ddf65f386d60.jpg" alt="Logo">
+    <div class="brand">SHOP LE KHANH HUY</div>
+    <div class="brand-sub">shoplekhanhhuy.lovable.app</div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" id="tab-login" onclick="switchTab('login')">Đăng Nhập</button>
+    <button class="tab" id="tab-reg" onclick="switchTab('register')">Đăng Ký</button>
+  </div>
+  <div id="alert-box" class="alert"></div>
+
+  <div id="form-login">
+    <div class="field"><label>Email</label><input type="email" id="login-email" placeholder="email@example.com" autocomplete="email"></div>
+    <div class="field"><label>Mật Khẩu</label><input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password"></div>
+    <button class="btn" id="btn-login" onclick="doLogin()">Đăng Nhập</button>
+  </div>
+
+  <div id="form-register" style="display:none">
+    <div class="field"><label>Email Đăng Ký</label><input type="email" id="reg-email" placeholder="email@example.com"></div>
+    <div class="field"><label>Mật Khẩu</label><input type="password" id="reg-pass" placeholder="Tối thiểu 8 ký tự"></div>
+    <div class="field"><label>Xác Nhận Mật Khẩu</label><input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu"></div>
+    <button class="btn" id="btn-reg" onclick="doRegister()">Tạo Tài Khoản</button>
+  </div>
+
+  <div class="security-badge">🔒 <span>SSL</span> · Bảo mật <span>Server</span> · IP Logged</div>
+  <div class="ip-info" id="ip-display">Đang xác định IP...</div>
+</div>
+<audio id="bgm" src="https://on.soundcloud.com/Pokx7oUdDrEHbYjwbq" loop autoplay></audio>
+<script>
+const API = '';
+let userIP = 'unknown';
+
+// Particles
+(function(){
+  const el=document.getElementById('particles');
+  for(let i=0;i<20;i++){
+    const d=document.createElement('div');d.className='p';
+    const sz=Math.random()*3+1,dur=Math.random()*18+10,del=Math.random()*20;
+    const col=Math.random()>.5?'rgba(139,92,246,':'rgba(6,182,212,';
+    d.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;background:${col}0.4);animation-duration:${dur}s;animation-delay:${del}s;`;
+    el.appendChild(d);
+  }
+})();
+
+// IP
+fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{
+  userIP=d.ip;
+  document.getElementById('ip-display').textContent='IP: '+userIP+' · Được bảo mật';
+}).catch(()=>{document.getElementById('ip-display').textContent='IP: Đã ghi nhận · Được bảo mật';});
+
+function switchTab(t){
+  document.getElementById('form-login').style.display=t==='login'?'block':'none';
+  document.getElementById('form-register').style.display=t==='register'?'block':'none';
+  document.getElementById('tab-login').classList.toggle('active',t==='login');
+  document.getElementById('tab-reg').classList.toggle('active',t==='register');
+  hideAlert();
+}
+function showAlert(msg,type='error'){const el=document.getElementById('alert-box');el.className='alert '+type;el.innerHTML=(type==='error'?'❌ ':'✅ ')+msg;}
+function hideAlert(){document.getElementById('alert-box').className='alert';}
+function setLoading(btnId,loading,text){const b=document.getElementById(btnId);b.disabled=loading;b.innerHTML=loading?`<span class="spinner"></span>${text}`:text;}
+
+async function doLogin(){
+  const email=document.getElementById('login-email').value.trim();
+  const pass=document.getElementById('login-pass').value;
+  if(!email||!pass){showAlert('Vui lòng nhập đầy đủ!');return;}
+  setLoading('btn-login',true,'Đang đăng nhập...');
+  try{
+    const r=await fetch(API+'/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,pass})});
+    const d=await r.json();
+    if(!d.ok){showAlert(d.msg||'Sai thông tin!');return;}
+    sessionStorage.setItem('currentUser',JSON.stringify(d.user));
+    showAlert('Đăng nhập thành công! Đang chuyển...','success');
+    setTimeout(()=>location.href='danhsach.html',700);
+  }catch{showAlert('Không kết nối được server! Hãy chắc server đang chạy.');}
+  finally{setLoading('btn-login',false,'Đăng Nhập');}
+}
+
+async function doRegister(){
+  const email=document.getElementById('reg-email').value.trim();
+  const pass=document.getElementById('reg-pass').value;
+  const pass2=document.getElementById('reg-pass2').value;
+  if(!email||!pass||!pass2){showAlert('Vui lòng nhập đầy đủ!');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showAlert('Email không hợp lệ!');return;}
+  if(pass.length<8){showAlert('Mật khẩu tối thiểu 8 ký tự!');return;}
+  if(pass!==pass2){showAlert('Mật khẩu không khớp!');return;}
+  setLoading('btn-reg',true,'Đang đăng ký...');
+  try{
+    const r=await fetch(API+'/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,pass,ip:userIP})});
+    const d=await r.json();
+    if(!d.ok){showAlert(d.msg||'Lỗi đăng ký!');return;}
+    showAlert('Đăng ký thành công! Mời đăng nhập.','success');
+    setTimeout(()=>switchTab('login'),1200);
+  }catch{showAlert('Không kết nối được server!');}
+  finally{setLoading('btn-reg',false,'Tạo Tài Khoản');}
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){document.getElementById('tab-login').classList.contains('active')?doLogin():doRegister();}});
+document.addEventListener('click',()=>document.getElementById('bgm').play().catch(()=>{}),{once:true});
+</script>
+</body>
+  </html>
+                                                                                      
