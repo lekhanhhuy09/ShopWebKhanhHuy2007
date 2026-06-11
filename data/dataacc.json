@@ -1,0 +1,5 @@
+cat > /tmp/shopv2/data/mondoupdate.json   << 'E'[]E
+cat > /tmp/shopv2/data/lichsu.json        << 'E'[]E
+cat > /tmp/shopv2/data/lichsucongtien.json << 'E'[]E
+
+echo "package + data done"
