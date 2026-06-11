@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lịch Sử — Shop LK Huy</title>
+<link rel="icon" href="https://sf-static.upanhlaylink.com/img/image_2026060946fe6a194bb186109153ddf65f386d60.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#050508;--border:rgba(139,92,246,0.15);--text:#f1f5f9;--muted:#64748b;--success:#22c55e;--danger:#ef4444;--amber:#f59e0b;--accent:#8b5cf6;}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(139,92,246,0.08),transparent 60%);}
+nav{background:rgba(5,5,8,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 20px;}
+.ni{max-width:860px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;}
+.back{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;border:none;background:none;padding:6px 11px;border-radius:8px;transition:.15s;}
+.back:hover{background:rgba(255,255,255,0.05);color:var(--text);}
+.nt{font-size:15px;font-weight:800;background:linear-gradient(135deg,#c4b5fd,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nb{font-size:13px;font-weight:700;color:var(--amber);}
+.container{max-width:860px;margin:0 auto;padding:26px 18px;}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.sc{background:rgba(13,13,20,0.9);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;}
+.sv{font-size:21px;font-weight:900;margin-bottom:3px;}
+.sl{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.c-plus{color:var(--success);}.c-minus{color:var(--danger);}.c-acc{color:var(--accent);}
+.ftabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;}
+.ft{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.07);background:rgba(255,255,255,0.03);color:var(--muted);transition:.15s;font-family:'JetBrains Mono',monospace;}
+.ft:hover{border-color:rgba(139,92,246,0.3);color:#c4b5fd;}
+.ft.active{background:rgba(139,92,246,0.12);border-color:rgba(139,92,246,0.35);color:#c4b5fd;}
+.panel{background:rgba(13,13,20,0.92);border:1px solid var(--border);border-radius:18px;overflow:hidden;}
+.ph{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px;}
+.ph-t{font-size:15px;font-weight:700;}
+.cnt{margin-left:auto;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);background:rgba(255,255,255,0.04);padding:2px 8px;border-radius:10px;}
+.hl{padding:12px;}
+.hi{display:flex;align-items:center;gap:13px;padding:12px 13px;border-radius:11px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);margin-bottom:7px;transition:.15s;}
+.hi:hover{background:rgba(255,255,255,0.04);}
+.hi-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+.ico-nap{background:rgba(34,197,94,0.1);}.ico-mua{background:rgba(139,92,246,0.1);}.ico-pend{background:rgba(245,158,11,0.1);}
+.hi-info{flex:1;min-width:0;}
+.hi-name{font-size:14px;font-weight:600;margin-bottom:3px;}
+.hi-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.hi-time{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted);}
+.hi-code{font-size:10px;font-family:'JetBrains Mono',monospace;background:rgba(139,92,246,0.08);color:#c4b5fd;padding:1px 6px;border-radius:4px;}
+.badge{font-size:9px;font-family:'JetBrains Mono',monospace;padding:2px 7px;border-radius:10px;font-weight:700;}
+.b-nap{background:rgba(34,197,94,0.1);color:#86efac;border:1px solid rgba(34,197,94,0.2);}
+.b-mua{background:rgba(139,92,246,0.1);color:#c4b5fd;border:1px solid rgba(139,92,246,0.2);}
+.b-pend{background:rgba(245,158,11,0.1);color:#fcd34d;border:1px solid rgba(245,158,11,0.2);}
+.hi-amt{font-size:17px;font-weight:900;flex-shrink:0;font-family:'JetBrains Mono',monospace;}
+.empty{text-align:center;padding:52px 20px;color:var(--muted);}
+.empty-i{font-size:44px;margin-bottom:10px;}
+audio{display:none;}
+@media(max-width:560px){.summary{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="ni">
+    <button class="back" onclick="location.href='trangchu.html'">← Quay Lại</button>
+    <span class="nt">📜 Lịch Sử Giao Dịch</span>
+    <span class="nb" id="nav-bal">₫0</span>
+  </div>
+</nav>
+<div class="container">
+  <div class="summary">
+    <div class="sc"><div class="sv c-plus" id="s-nap">₫0</div><div class="sl">Tổng Nạp</div></div>
+    <div class="sc"><div class="sv c-minus" id="s-mua">₫0</div><div class="sl">Tổng Chi</div></div>
+    <div class="sc"><div class="sv c-acc" id="s-cnt">0</div><div class="sl">Giao Dịch</div></div>
+  </div>
+  <div class="ftabs">
+    <button class="ft active" onclick="filter('all',this)">TẤT CẢ</button>
+    <button class="ft" onclick="filter('nap',this)">💰 NẠP TIỀN</button>
+    <button class="ft" onclick="filter('mua',this)">🛍️ MUA HÀNG</button>
+    <button class="ft" onclick="filter('nap_pending',this)">⏳ ĐANG XỬ LÝ</button>
+  </div>
+  <div class="panel">
+    <div class="ph"><span style="font-size:19px;">📋</span><span class="ph-t">Chi Tiết Giao Dịch</span><span class="cnt" id="cnt-badge">...</span></div>
+    <div class="hl" id="hl"></div>
+  </div>
+</div>
+<audio id="bgm" src="https://on.soundcloud.com/Pokx7oUdDrEHbYjwbq" loop autoplay></audio>
+<script>
+const API='';
+const user=JSON.parse(sessionStorage.getItem('currentUser')||'null');
+if(!user)location.href='index.html';
+const fmt=n=>new Intl.NumberFormat('vi-VN').format(n||0)+'đ';
+let allH=[],curF='all';
+
+// Load balance
+fetch(API+'/api/me?email='+encodeURIComponent(user.email)).then(r=>r.json()).then(d=>{
+  if(d.ok)document.getElementById('nav-bal').textContent=fmt(d.user.balance);
+}).catch(()=>{});
+
+// Load history
+fetch(API+'/api/history?email='+encodeURIComponent(user.email)).then(r=>r.json()).then(hist=>{
+  allH=hist;
+  const nap=hist.filter(h=>h.type==='nap').reduce((s,h)=>s+(h.amount||0),0);
+  const mua=hist.filter(h=>h.type==='mua').reduce((s,h)=>s+Math.abs(h.amount||0),0);
+  document.getElementById('s-nap').textContent='+'+fmt(nap);
+  document.getElementById('s-mua').textContent='-'+fmt(mua);
+  document.getElementById('s-cnt').textContent=hist.length;
+  render();
+}).catch(()=>{document.getElementById('hl').innerHTML='<div class="empty"><div class="empty-i">❌</div>Lỗi tải lịch sử</div>';});
+
+function filter(type,el){curF=type;document.querySelectorAll('.ft').forEach(b=>b.classList.remove('active'));if(el)el.classList.add('active');render();}
+
+function render(){
+  const list=curF==='all'?allH:allH.filter(h=>h.type===curF);
+  const el=document.getElementById('hl');
+  document.getElementById('cnt-badge').textContent=list.length+' giao dịch';
+  if(!list.length){el.innerHTML='<div class="empty"><div class="empty-i">📭</div>Không có giao dịch nào</div>';return;}
+  el.innerHTML=list.map(h=>{
+    const isMua=h.type==='mua',isPend=h.type==='nap_pending';
+    const icon=isMua?'🛍️':isPend?'⏳':'💰';
+    const icoC=isMua?'ico-mua':isPend?'ico-pend':'ico-nap';
+    const bc=isMua?'b-mua':isPend?'b-pend':'b-nap';
+    const bt=isMua?'MUA HÀNG':isPend?'ĐANG XỬ LÝ':'NẠP TIỀN';
+    const name=isMua?h.name:isPend?'Chờ Admin Xác Nhận':'Nạp Tiền Thành Công';
+    const ac=h.amount>0?'c-plus':isPend?'c-acc':'c-minus';
+    const at=isPend?'Pending':(h.amount>0?'+':'')+fmt(h.amount);
+    const code=h.code?`<span class="hi-code">#${h.code}</span>`:'';
+    return`<div class="hi">
+      <div class="hi-ico ${icoC}">${icon}</div>
+      <div class="hi-info">
+        <div class="hi-name">${name}</div>
+        <div class="hi-meta"><span class="hi-time">${new Date(h.time).toLocaleString('vi-VN')}</span>${code}<span class="badge ${bc}">${bt}</span></div>
+      </div>
+      <div class="hi-amt ${ac}">${at}</div>
+    </div>`;
+  }).join('');
+}
+document.addEventListener('click',()=>document.getElementById('bgm').play().catch(()=>{}),{once:true});
+</script>
+</body>
+  </html>
+  
